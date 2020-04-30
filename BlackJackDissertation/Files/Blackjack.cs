@@ -19,6 +19,7 @@ namespace BlackJackDissertation.Files
         private int _bet;
         private double _payout;
         private bool _gameStatus;
+        private int _gameWins;
 
         // constructor
 
@@ -31,6 +32,7 @@ namespace BlackJackDissertation.Files
             _bet = 0;
             _payout = 0;
             _gameStatus = false;
+            _gameWins = 0;
         }
 
         // methods and get and setters
@@ -84,7 +86,7 @@ namespace BlackJackDissertation.Files
             _player = new Player();
             _dealer = new Player();
             MenuForm.gameForm.hitBtn.Tag = "BetPhase"; // updates game to bet phase
-            MenuForm.gameForm.updateUI(); // updates ui 
+            MenuForm.gameForm.UpdateUI(); // updates ui 
 
         }
 
@@ -145,6 +147,7 @@ namespace BlackJackDissertation.Files
             {
                 MessageBox.Show("Player has a higher score than Dealer", "Player Wins!");
                 _payout = 2;
+                _gameWins++;
             }
             // if player and dealer dont bust but dealer has a higher score the player
             else if ((_player.GetPlayerTotal() <= 21) && (_player.GetPlayerTotal() < _dealer.GetPlayerTotal()) && (_dealer.GetPlayerTotal() <= 21))
@@ -157,6 +160,7 @@ namespace BlackJackDissertation.Files
             {
                 MessageBox.Show("Dealer has gone BUST", "Player Wins!");
                 _payout = 2;
+                _gameWins++;
             }
             // if player goes bust
             else if ((_player.GetPlayerTotal() > 21) )
@@ -271,6 +275,16 @@ namespace BlackJackDissertation.Files
         public bool GetGameStatus()
         {
             return this._gameStatus;
+        }
+
+        public void SetGameWin(int gamewin)
+        {
+            this._gameWins = gamewin;
+        }
+
+        public int GetGameWin()
+        {
+            return this._gameWins;
         }
 
 

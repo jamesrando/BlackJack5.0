@@ -31,7 +31,7 @@ namespace BlackJackDissertation.Forms
             gameForm.Show();
             this.Hide();
             gameForm.hitBtn.Tag = "BetPhase";
-            gameForm.updateUI();
+            gameForm.UpdateUI();
         }
 
         private void MenuForm_Load(object sender, EventArgs e)

@@ -16,6 +16,7 @@ namespace BlackJackDissertation
         // member variables
         Blackjack newGame = new Blackjack();
         PictureBox[][] pictureBoxes;
+        private int num = 0;
 
 
 
@@ -58,7 +59,7 @@ namespace BlackJackDissertation
                         }
                         hitBtn.Tag = "GamePhase";   //Changes phase
                         hitBtn.Text = "Hit";
-                        updateUI();  //Chhnages the display
+                        UpdateUI();  //Chhnages the display
                         newGame.Deal();
                         //Updates display
                         displayHand("user");
@@ -170,7 +171,7 @@ namespace BlackJackDissertation
         /// <summary>
         /// updates the ui to the current part of the blackjack game
         /// </summary>
-        public void updateUI()
+        public void UpdateUI()
         {
             // at the beginning of the game labels are default
             if ((string)hitBtn.Tag == "BetPhase")
@@ -185,6 +186,13 @@ namespace BlackJackDissertation
                 lbl_bet_ammount.Visible = false;// changed
                 betInput.Visible = true;
                 betInput.Text = "";
+                lbl_wins.Text = "Wins:" + newGame.GetGameWin();
+
+                pb_chip_50.Visible = true;
+                pb_chip_100.Visible = true;
+                pb_chip_500.Visible = true;
+                btn_all_in.Visible = true;
+                btn_reset.Visible = true;
             }
             else
             {
@@ -202,7 +210,16 @@ namespace BlackJackDissertation
                 betInput.Visible = false;
 
                 lbl_bet_ammount.Text = "Bet: £" + newGame.GetStake();
-                lbl_bet_ammount.Visible = false;
+                
+                lbl_bet_ammount.Visible = true;
+                lbl_wins.Text = "Wins:" + newGame.GetGameWin();
+                lbl_wins.Visible = true;
+
+                pb_chip_50.Visible = false;
+                pb_chip_100.Visible = false;
+                pb_chip_500.Visible = false;
+                btn_all_in.Visible = false;
+                btn_reset.Visible = false;
             }
             //hides player and dealers cards until they are required and updates players cash ammount
             lbl_bank_ammount.Text = "Bank: £" + newGame.GetBankAmmount();
@@ -224,7 +241,7 @@ namespace BlackJackDissertation
         /// <param name="e"></param>
         private void btn_close_Click(object sender, EventArgs e)
         {
-            newGame.GameEnd();
+            Environment.Exit(0);
         }
 
         private void stake_input_TextChanged(object sender, EventArgs e)
@@ -238,6 +255,55 @@ namespace BlackJackDissertation
         }
 
         private void pb_chip_stake_Click(object sender, EventArgs e)
+        {
+
+        }
+        // Clear Chip Button
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var x = newGame.GetBankAmmount();
+            betInput.Text = x.ToString();
+        }
+
+        private void lbl_bet_ammount_Click(object sender, EventArgs e)
+        {
+           // newGame.GetStake().ToString();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            num = num + 100;
+            betInput.Text = num.ToString();
+        }
+
+        private void lbl_player_score_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pb_bank_Click(object sender, EventArgs e)
+        {
+            newGame.GetBankAmmount().ToString();
+        }
+
+        private void pb_chip_50_Click(object sender, EventArgs e)
+        {
+            num = num + 50;
+            betInput.Text = num.ToString();
+        }
+        
+        private void pb_chip_500_Click(object sender, EventArgs e)
+        {
+            num = num + 500;
+            betInput.Text = num.ToString();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            betInput.Text = String.Empty;
+        }
+
+        private void lbl_wins_Click(object sender, EventArgs e)
         {
 
         }

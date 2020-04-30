@@ -50,6 +50,12 @@
             this.lbl_bet_ammount = new System.Windows.Forms.Label();
             this.lbl_bank_ammount = new System.Windows.Forms.Label();
             this.lbl_bet_title = new System.Windows.Forms.Label();
+            this.btn_all_in = new System.Windows.Forms.Button();
+            this.pb_chip_500 = new System.Windows.Forms.PictureBox();
+            this.pb_chip_100 = new System.Windows.Forms.PictureBox();
+            this.pb_chip_50 = new System.Windows.Forms.PictureBox();
+            this.btn_reset = new System.Windows.Forms.Button();
+            this.lbl_wins = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.playerCard5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerCard4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerCard1)).BeginInit();
@@ -62,6 +68,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dealerCard5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_bet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_bank)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_chip_500)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_chip_100)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_chip_50)).BeginInit();
             this.SuspendLayout();
             // 
             // betInput
@@ -214,13 +223,12 @@
             // 
             this.pb_bet.BackColor = System.Drawing.Color.Transparent;
             this.pb_bet.Image = global::BlackJackDissertation.Properties.Resources.bjchips;
-            this.pb_bet.Location = new System.Drawing.Point(8, 448);
+            this.pb_bet.Location = new System.Drawing.Point(620, 392);
             this.pb_bet.Name = "pb_bet";
             this.pb_bet.Size = new System.Drawing.Size(100, 50);
             this.pb_bet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_bet.TabIndex = 35;
             this.pb_bet.TabStop = false;
-            this.pb_bet.Visible = false;
             this.pb_bet.Click += new System.EventHandler(this.pb_chip_stake_Click);
             // 
             // pb_bank
@@ -233,6 +241,7 @@
             this.pb_bank.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_bank.TabIndex = 36;
             this.pb_bank.TabStop = false;
+            this.pb_bank.Click += new System.EventHandler(this.pb_bank_Click);
             // 
             // lbl_dealer_score
             // 
@@ -259,6 +268,7 @@
             this.lbl_player_score.TabIndex = 38;
             this.lbl_player_score.Text = "Player Score";
             this.lbl_player_score.Visible = false;
+            this.lbl_player_score.Click += new System.EventHandler(this.lbl_player_score_Click);
             // 
             // btn_close
             // 
@@ -282,12 +292,12 @@
             this.lbl_bet_ammount.BackColor = System.Drawing.Color.Transparent;
             this.lbl_bet_ammount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_bet_ammount.ForeColor = System.Drawing.Color.White;
-            this.lbl_bet_ammount.Location = new System.Drawing.Point(114, 474);
+            this.lbl_bet_ammount.Location = new System.Drawing.Point(726, 410);
             this.lbl_bet_ammount.Name = "lbl_bet_ammount";
             this.lbl_bet_ammount.Size = new System.Drawing.Size(74, 20);
             this.lbl_bet_ammount.TabIndex = 40;
             this.lbl_bet_ammount.Text = "Bet - £50";
-            this.lbl_bet_ammount.Visible = false;
+            this.lbl_bet_ammount.Click += new System.EventHandler(this.lbl_bet_ammount_Click);
             // 
             // lbl_bank_ammount
             // 
@@ -314,6 +324,76 @@
             this.lbl_bet_title.Text = "Bet ";
             this.lbl_bet_title.Click += new System.EventHandler(this.lbl_stake_input_Click);
             // 
+            // btn_all_in
+            // 
+            this.btn_all_in.Location = new System.Drawing.Point(155, 475);
+            this.btn_all_in.Name = "btn_all_in";
+            this.btn_all_in.Size = new System.Drawing.Size(75, 23);
+            this.btn_all_in.TabIndex = 43;
+            this.btn_all_in.Text = "All In";
+            this.btn_all_in.UseVisualStyleBackColor = true;
+            this.btn_all_in.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pb_chip_500
+            // 
+            this.pb_chip_500.BackColor = System.Drawing.Color.Transparent;
+            this.pb_chip_500.Image = ((System.Drawing.Image)(resources.GetObject("pb_chip_500.Image")));
+            this.pb_chip_500.Location = new System.Drawing.Point(8, 428);
+            this.pb_chip_500.Name = "pb_chip_500";
+            this.pb_chip_500.Size = new System.Drawing.Size(72, 70);
+            this.pb_chip_500.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_chip_500.TabIndex = 44;
+            this.pb_chip_500.TabStop = false;
+            this.pb_chip_500.Click += new System.EventHandler(this.pb_chip_500_Click);
+            // 
+            // pb_chip_100
+            // 
+            this.pb_chip_100.BackColor = System.Drawing.Color.Transparent;
+            this.pb_chip_100.Image = ((System.Drawing.Image)(resources.GetObject("pb_chip_100.Image")));
+            this.pb_chip_100.Location = new System.Drawing.Point(86, 426);
+            this.pb_chip_100.Name = "pb_chip_100";
+            this.pb_chip_100.Size = new System.Drawing.Size(63, 72);
+            this.pb_chip_100.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_chip_100.TabIndex = 45;
+            this.pb_chip_100.TabStop = false;
+            this.pb_chip_100.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // pb_chip_50
+            // 
+            this.pb_chip_50.BackColor = System.Drawing.Color.Transparent;
+            this.pb_chip_50.Image = ((System.Drawing.Image)(resources.GetObject("pb_chip_50.Image")));
+            this.pb_chip_50.Location = new System.Drawing.Point(48, 358);
+            this.pb_chip_50.Name = "pb_chip_50";
+            this.pb_chip_50.Size = new System.Drawing.Size(63, 72);
+            this.pb_chip_50.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_chip_50.TabIndex = 46;
+            this.pb_chip_50.TabStop = false;
+            this.pb_chip_50.Click += new System.EventHandler(this.pb_chip_50_Click);
+            // 
+            // btn_reset
+            // 
+            this.btn_reset.Location = new System.Drawing.Point(155, 446);
+            this.btn_reset.Name = "btn_reset";
+            this.btn_reset.Size = new System.Drawing.Size(75, 23);
+            this.btn_reset.TabIndex = 47;
+            this.btn_reset.Text = "Reset";
+            this.btn_reset.UseVisualStyleBackColor = true;
+            this.btn_reset.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // lbl_wins
+            // 
+            this.lbl_wins.AutoSize = true;
+            this.lbl_wins.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_wins.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_wins.ForeColor = System.Drawing.Color.White;
+            this.lbl_wins.Location = new System.Drawing.Point(275, 2);
+            this.lbl_wins.Name = "lbl_wins";
+            this.lbl_wins.Size = new System.Drawing.Size(44, 20);
+            this.lbl_wins.TabIndex = 48;
+            this.lbl_wins.Text = "Wins";
+            this.lbl_wins.Visible = false;
+            this.lbl_wins.Click += new System.EventHandler(this.lbl_wins_Click);
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,6 +401,12 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(846, 503);
+            this.Controls.Add(this.lbl_wins);
+            this.Controls.Add(this.btn_reset);
+            this.Controls.Add(this.pb_chip_50);
+            this.Controls.Add(this.pb_chip_100);
+            this.Controls.Add(this.pb_chip_500);
+            this.Controls.Add(this.btn_all_in);
             this.Controls.Add(this.lbl_bet_title);
             this.Controls.Add(this.lbl_bank_ammount);
             this.Controls.Add(this.lbl_bet_ammount);
@@ -357,6 +443,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dealerCard5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_bet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_bank)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_chip_500)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_chip_100)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_chip_50)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -384,6 +473,12 @@
         public System.Windows.Forms.Label lbl_bet_ammount;
         public System.Windows.Forms.Label lbl_bank_ammount;
         public System.Windows.Forms.Label lbl_bet_title;
+        private System.Windows.Forms.Button btn_all_in;
+        private System.Windows.Forms.PictureBox pb_chip_500;
+        private System.Windows.Forms.PictureBox pb_chip_100;
+        private System.Windows.Forms.PictureBox pb_chip_50;
+        private System.Windows.Forms.Button btn_reset;
+        public System.Windows.Forms.Label lbl_wins;
     }
 }
 
