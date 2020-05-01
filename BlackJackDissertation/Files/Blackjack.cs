@@ -20,6 +20,7 @@ namespace BlackJackDissertation.Files
         private double _payout;
         private bool _gameStatus;
         private int _gameWins;
+        private int _gamesPlayed;
 
         // constructor
 
@@ -33,10 +34,18 @@ namespace BlackJackDissertation.Files
             _payout = 0;
             _gameStatus = false;
             _gameWins = 0;
+            _gamesPlayed = 0;
         }
 
         // methods and get and setters
-
+        public int GamesCount()
+        {
+            if(_gameStatus == true)
+            {
+                _gamesPlayed++;
+            }
+            return _gamesPlayed;
+        }
         /// <summary>
         /// determines if the bet that is being placed is enough to wager with there current cash ammount
         /// </summary>

@@ -56,6 +56,7 @@
             this.pb_chip_50 = new System.Windows.Forms.PictureBox();
             this.btn_reset = new System.Windows.Forms.Button();
             this.lbl_wins = new System.Windows.Forms.Label();
+            this.lbl_games = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.playerCard5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerCard4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerCard1)).BeginInit();
@@ -386,13 +387,26 @@
             this.lbl_wins.BackColor = System.Drawing.Color.Transparent;
             this.lbl_wins.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_wins.ForeColor = System.Drawing.Color.White;
-            this.lbl_wins.Location = new System.Drawing.Point(275, 2);
+            this.lbl_wins.Location = new System.Drawing.Point(382, 2);
             this.lbl_wins.Name = "lbl_wins";
             this.lbl_wins.Size = new System.Drawing.Size(44, 20);
             this.lbl_wins.TabIndex = 48;
             this.lbl_wins.Text = "Wins";
             this.lbl_wins.Visible = false;
             this.lbl_wins.Click += new System.EventHandler(this.lbl_wins_Click);
+            // 
+            // lbl_games
+            // 
+            this.lbl_games.AutoSize = true;
+            this.lbl_games.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_games.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_games.ForeColor = System.Drawing.Color.White;
+            this.lbl_games.Location = new System.Drawing.Point(272, 2);
+            this.lbl_games.Name = "lbl_games";
+            this.lbl_games.Size = new System.Drawing.Size(61, 20);
+            this.lbl_games.TabIndex = 49;
+            this.lbl_games.Text = "Games";
+            this.lbl_games.Visible = false;
             // 
             // GameForm
             // 
@@ -401,6 +415,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(846, 503);
+            this.Controls.Add(this.lbl_games);
             this.Controls.Add(this.lbl_wins);
             this.Controls.Add(this.btn_reset);
             this.Controls.Add(this.pb_chip_50);
@@ -479,6 +494,7 @@
         private System.Windows.Forms.PictureBox pb_chip_50;
         private System.Windows.Forms.Button btn_reset;
         public System.Windows.Forms.Label lbl_wins;
+        public System.Windows.Forms.Label lbl_games;
     }
 }
 

@@ -179,6 +179,9 @@ namespace BlackJackDissertation
                 
                 hitBtn.Text = "Deal";
                 btn_stand.Text = "Walk Away";
+                btn_stand.Visible = false;
+
+
                 pb_bet.Visible = true;
                 lbl_bet_title.Visible = false;
                 lbl_dealer_score.Visible = false;
@@ -199,6 +202,7 @@ namespace BlackJackDissertation
                 // during the game
                 hitBtn.Text = "Hit";
                 btn_stand.Text = "Stand";
+                btn_stand.Visible = true;
 
                 pb_bet.Visible = true;
                 pb_bet.Visible = true;
@@ -213,7 +217,9 @@ namespace BlackJackDissertation
                 
                 lbl_bet_ammount.Visible = true;
                 lbl_wins.Text = "Wins:" + newGame.GetGameWin();
+                lbl_games.Text = "Games:" + newGame.GamesCount().ToString();
                 lbl_wins.Visible = true;
+                lbl_games.Visible = true;
 
                 pb_chip_50.Visible = false;
                 pb_chip_100.Visible = false;
@@ -300,7 +306,9 @@ namespace BlackJackDissertation
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            betInput.Text = String.Empty;
+            // betInput.Text = String.Empty;
+            num = 0;
+            betInput.Text = num.ToString();
         }
 
         private void lbl_wins_Click(object sender, EventArgs e)
