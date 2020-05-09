@@ -59,12 +59,12 @@ namespace BlackJackDissertation
                         }
                         hitBtn.Tag = "GamePhase";   //Changes phase
                         hitBtn.Text = "Hit";
-                        UpdateUI();  //Chhnages the display
+                        UpdateUI();  // updates current ui
                         newGame.Deal();
                         //Updates display
-                        displayHand("user");
+                        DisplayHand("user");
                         lbl_player_score.Text = "Player Total\n" + newGame.GetPlayer().GetPlayerTotal();
-                        lbl_dealer_score.Text = "Dealer Total\n" + newGame.GetDealer().GetCard()[1].GetValue();
+                        lbl_dealer_score.Text = "Dealer Total\n" + newGame.GetDealer().GetCard()[1].GetValue(); // error when player gets blackjack
                     }
                     //If bet size is invalid, bet is not placed and text field is reset
                     else
@@ -97,7 +97,7 @@ namespace BlackJackDissertation
                     }
                     //Updates all info
                     newGame.GetPlayer().UpdateHand();
-                    displayHand("user");
+                    DisplayHand("user");
                     lbl_player_score.Text = "Player Total\n" + newGame.GetPlayer().GetPlayerTotal();
                     System.Threading.Thread.Sleep(1);
                     //If hand needs to be resolved without a dealer trun, goes straight to hand resolution (player blackjack, 5 card trick or bust)
@@ -120,7 +120,7 @@ namespace BlackJackDissertation
 
         }
          
-        private void btn_stand_Click(object sender, EventArgs e)
+        private void Btn_stand_Click(object sender, EventArgs e)
         {
             if((string)btn_stand.Tag == "BetPhase")
             {
@@ -144,7 +144,7 @@ namespace BlackJackDissertation
         /// Displays cards to the pictureboxes to player and dealers hands
         /// </summary>
         /// <param name="player"></param>
-        public void displayHand(string player)
+        public void DisplayHand(string player)
         {
             for (int i = 0; i < newGame.GetPlayer().GetCardAmmount(); i++)
             {
@@ -190,12 +190,16 @@ namespace BlackJackDissertation
                 betInput.Visible = true;
                 betInput.Text = "";
                 lbl_wins.Text = "Wins:" + newGame.GetGameWin();
+                lbl_loses.Text = "Loses: " + newGame.GetGameLoss().ToString();
+                lbl_loses.Visible = true;
 
                 pb_chip_50.Visible = true;
                 pb_chip_100.Visible = true;
                 pb_chip_500.Visible = true;
                 btn_all_in.Visible = true;
                 btn_reset.Visible = true;
+                lbl_loses.Visible = false;
+                pb_bet.Visible = false;
             }
             else
             {
@@ -205,7 +209,7 @@ namespace BlackJackDissertation
                 btn_stand.Visible = true;
 
                 pb_bet.Visible = true;
-                pb_bet.Visible = true;
+                
 
                 lbl_player_score.Visible = true;
                 lbl_dealer_score.Visible = true;
@@ -214,7 +218,9 @@ namespace BlackJackDissertation
                 betInput.Visible = false;
 
                 lbl_bet_ammount.Text = "Bet: £" + newGame.GetStake();
-                
+                lbl_loses.Text = "Loses: " + newGame.GetGameLoss().ToString();
+                lbl_loses.Visible = true;
+
                 lbl_bet_ammount.Visible = true;
                 lbl_wins.Text = "Wins:" + newGame.GetGameWin();
                 lbl_games.Text = "Games:" + newGame.GamesCount().ToString();
@@ -226,6 +232,8 @@ namespace BlackJackDissertation
                 pb_chip_500.Visible = false;
                 btn_all_in.Visible = false;
                 btn_reset.Visible = false;
+                
+                
             }
             //hides player and dealers cards until they are required and updates players cash ammount
             lbl_bank_ammount.Text = "Bank: £" + newGame.GetBankAmmount();

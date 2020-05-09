@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Files\Blackjack.cs" />
     <Compile Include="Files\Card.cs" />
+    <Compile Include="ClassTests\Deck_Card_Values_Test.cs" />
     <Compile Include="Files\Deck.cs" />
     <Compile Include="Files\Player.cs" />
     <Compile Include="Forms\GameForm.cs">

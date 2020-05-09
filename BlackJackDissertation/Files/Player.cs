@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlackJackDissertation.Files
 {
-    class Player
+    public class Player
     {
         // members and properties
 

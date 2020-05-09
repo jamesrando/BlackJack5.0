@@ -9,12 +9,16 @@ using System.Threading.Tasks;
 
 namespace BlackJackDissertation.Files
 {
-    class Deck
+    public class Deck
     {
         // members and properties
 
         private Card[] _deck; // an Array of the card class which is going to be the creation of multiple cards
         private int _nextCard; // will determine what the next card is going to be pulled from the deck of cards
+        private int _card;
+        private int _suit;
+        private string _rank;
+        private int _value;
 
         // constructors
 
@@ -111,6 +115,105 @@ namespace BlackJackDissertation.Files
             return drawCard;
         }
 
+      /*  public bool IsAce()
+        {
+
+            *//*  Card card = _deck[_card];
+
+
+
+              if(card.GetRank() == "A")
+              {
+                  card.SetValue(11)
+
+              }
+
+              return card.GetRank() == "A";*/
+           /* Card drawCard = _deck[_nextCard];
+
+            if (drawCard.GetRank() == "A")
+            {
+                drawCard.SetValue(11);
+            }*//*
+
+            if (GetRank() == "A")
+            {
+                SetValue(11);
+            }
+            if ()
+
+            return true;
+        }
+*/
+       
+
+
+
+        /// <summary>
+        /// use to test card values in array
+        /// </summary>
+        /* public int NumberValue()
+         {
+             Card cards = _deck[_nextCard];
+
+             if (cards.GetRank() == "A")
+             {
+                 cards.SetValue(11);
+             }
+             if (cards.GetRank() == "2")
+             {
+                 cards.SetValue(2);
+             }
+             if (cards.GetRank() == "3")
+             {
+                 cards.SetValue(3);
+             }
+             if (cards.GetRank() == "4")
+             {
+                 cards.SetValue(4);
+             }
+             if (cards.GetRank() == "5")
+             {
+                 cards.SetValue(5);
+             }
+             if (cards.GetRank() == "6")
+             {
+                 cards.SetValue(6);
+             }
+             if (cards.GetRank() == "7")
+             {
+                 cards.SetValue(7);
+             }
+             if (cards.GetRank() == "8")
+             {
+                 cards.SetValue(8);
+             }
+             if (cards.GetRank() == "9")
+             {
+                 cards.SetValue(9);
+             }
+             if (cards.GetRank() == "10")
+             {
+                 cards.SetValue(10);
+             }
+             if (cards.GetRank() == "J")
+             {
+                 cards.SetValue(10);
+             }
+             if (cards.GetRank() == "Q")
+             {
+                 cards.SetValue(10);
+             }
+             if (cards.GetRank() == "K")
+             {
+                 cards.SetValue(10);
+             }
+
+             return cards;
+
+
+         }*/
+
 
         //Getters and setters
         #region Getters and Setters
@@ -135,6 +238,41 @@ namespace BlackJackDissertation.Files
             return _nextCard;
         }
 
+
+        public void SetSuit(int suit)
+        {
+            this._suit = suit;
+        }
+
+        public int GetSuit()
+        {
+            return _suit;
+        }
+
+        public void SetRank(string rank)
+        {
+            this._rank = rank;
+        }
+
+        public string GetRank()
+        {
+            return _rank;
+        }
+
+        public void SetValue(int value)
+        {
+            this._value = value;
+        }
+
+        public int GetValue()
+        {
+            return _value;
+        }
+
+        public int SetCardValue(int value)  // test
+        {
+            return _value;
+        }
         #endregion
     }
 

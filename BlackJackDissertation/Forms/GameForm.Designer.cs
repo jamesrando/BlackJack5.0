@@ -57,6 +57,7 @@
             this.btn_reset = new System.Windows.Forms.Button();
             this.lbl_wins = new System.Windows.Forms.Label();
             this.lbl_games = new System.Windows.Forms.Label();
+            this.lbl_loses = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.playerCard5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerCard4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerCard1)).BeginInit();
@@ -201,7 +202,7 @@
             this.btn_stand.Text = "Stand";
             this.btn_stand.UseVisualStyleBackColor = false;
             this.btn_stand.Visible = false;
-            this.btn_stand.Click += new System.EventHandler(this.btn_stand_Click);
+            this.btn_stand.Click += new System.EventHandler(this.Btn_stand_Click);
             // 
             // hitBtn
             // 
@@ -408,6 +409,19 @@
             this.lbl_games.Text = "Games";
             this.lbl_games.Visible = false;
             // 
+            // lbl_loses
+            // 
+            this.lbl_loses.AutoSize = true;
+            this.lbl_loses.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_loses.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_loses.ForeColor = System.Drawing.Color.White;
+            this.lbl_loses.Location = new System.Drawing.Point(453, 2);
+            this.lbl_loses.Name = "lbl_loses";
+            this.lbl_loses.Size = new System.Drawing.Size(46, 20);
+            this.lbl_loses.TabIndex = 50;
+            this.lbl_loses.Text = "loses";
+            this.lbl_loses.Visible = false;
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -415,6 +429,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(846, 503);
+            this.Controls.Add(this.lbl_loses);
             this.Controls.Add(this.lbl_games);
             this.Controls.Add(this.lbl_wins);
             this.Controls.Add(this.btn_reset);
@@ -495,6 +510,7 @@
         private System.Windows.Forms.Button btn_reset;
         public System.Windows.Forms.Label lbl_wins;
         public System.Windows.Forms.Label lbl_games;
+        public System.Windows.Forms.Label lbl_loses;
     }
 }
 

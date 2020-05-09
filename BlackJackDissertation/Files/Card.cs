@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BlackJackDissertation.Files
 {
-    class Card
+    public class Card
     {
 
         // member variables / properties
@@ -30,7 +30,7 @@ namespace BlackJackDissertation.Files
         }
 
         
-
+         
         // methods and get and setters
         #region Getters and Setters      
         public void SetSuit(int suit)
@@ -83,6 +83,7 @@ namespace BlackJackDissertation.Files
             return this._cardBack;
         }
 
+      
         #endregion Getters and Setters
 
 

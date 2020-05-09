@@ -10,17 +10,19 @@ namespace BlackJackDissertation.Files
 {
     class Blackjack
     {
-        // members and properties 
+        // fields 
 
         private Deck _deck; // instance of the deck object
         private Player _player; // instance of the player object
         private Player _dealer; // instance of the dealer object
         private int _bank; // players money total
-        private int _bet;
+        private int _bet; // Players bet ammount that will be wagered 
         private double _payout;
         private bool _gameStatus;
         private int _gameWins;
         private int _gamesPlayed;
+        private int _gamesLost;
+        private int _returns; // ammount player returns at end of each hand
 
         // constructor
 
@@ -35,9 +37,15 @@ namespace BlackJackDissertation.Files
             _gameStatus = false;
             _gameWins = 0;
             _gamesPlayed = 0;
+            _gamesLost = 0;
         }
 
         // methods and get and setters
+
+        /// <summary>
+        /// will count the ammount of games are played during the application
+        /// </summary>
+        /// <returns></returns>
         public int GamesCount()
         {
             if(_gameStatus == true)
@@ -46,6 +54,7 @@ namespace BlackJackDissertation.Files
             }
             return _gamesPlayed;
         }
+
         /// <summary>
         /// determines if the bet that is being placed is enough to wager with there current cash ammount
         /// </summary>
@@ -70,6 +79,7 @@ namespace BlackJackDissertation.Files
             }
         }
 
+      
         /// <summary>
         /// provides the player and dealer with 2 cards which is the beginning of the hand
         /// </summary>
@@ -82,7 +92,7 @@ namespace BlackJackDissertation.Files
 
             if (_player.GetPlayerTotal() == 21)
             {
-                MenuForm.gameForm.displayHand("user");
+                MenuForm.gameForm.DisplayHand("user");
                 HandOutcome();
             }
         }
@@ -96,7 +106,7 @@ namespace BlackJackDissertation.Files
             _dealer = new Player();
             MenuForm.gameForm.hitBtn.Tag = "BetPhase"; // updates game to bet phase
             MenuForm.gameForm.UpdateUI(); // updates ui 
-
+        
         }
 
         public void DealerHand()
@@ -124,13 +134,47 @@ namespace BlackJackDissertation.Files
                     }
                 }
                 System.Threading.Thread.Sleep(1000);
-                MenuForm.gameForm.displayHand("dealer");
+                MenuForm.gameForm.DisplayHand("dealer");
                 _dealer.UpdateHand();
                 MenuForm.gameForm.lbl_dealer_score.Text = "Dealer Score\n" + _dealer.GetPlayerTotal();
                 MenuForm.gameForm.lbl_dealer_score.Update();
                 
             }
             HandOutcome();        
+        }
+        public void PlayerWins()
+        {
+            if (_player.GetCardAmmount() == 2 && _player.GetPlayerTotal() == 21)
+            {
+
+                MessageBox.Show("Player has BlackJack!");
+                _payout = 2.5;
+                _gameWins++;
+            }
+            else if (_player.GetCardAmmount() == 5 && _player.GetPlayerTotal() < 21)
+            {
+                MessageBox.Show("Player has reached under 21 with five cards", "Player Wins!");
+                _payout = 2;
+                _gameWins++;
+            }
+            else if ((_player.GetPlayerTotal() <= 21) && (_player.GetPlayerTotal() > _dealer.GetPlayerTotal()) && (_player.GetPlayerTotal() <= 21))
+            {
+                MessageBox.Show("Player has a higher score than Dealer", "Player Wins a payout of {0}" + _payout); // test
+                _payout = 2;
+                _gameWins++;
+            }
+            else if ((_player.GetPlayerTotal() <= 21) && (_dealer.GetPlayerTotal() > 21))
+            {
+                MessageBox.Show("Dealer has gone BUST", "Player Wins!");
+                _payout = 2;
+                _gameWins++;
+            }
+            else if ((_player.GetPlayerTotal() <= 21) && (_player.GetPlayerTotal() == _dealer.GetPlayerTotal()))
+            {
+                MessageBox.Show("Player and Dealer both have the same Score!", "PUSH!");
+                _payout = 1;
+            }
+
         }
 
         /// <summary>
@@ -144,17 +188,19 @@ namespace BlackJackDissertation.Files
 
                 MessageBox.Show("Player has BlackJack!");
                 _payout = 2.5;
+                _gameWins++;
             }
             // if the player gets five cards and doesnt bust
             else if (_player.GetCardAmmount() == 5 && _player.GetPlayerTotal() < 21)
             {
                 MessageBox.Show("Player has reached under 21 with five cards", "Player Wins!");
-
+                _payout = 2;
+                _gameWins++;
             }
             // if player and dealer dont bust but the player has a higher score than the dealer
             else if ((_player.GetPlayerTotal() <= 21) && (_player.GetPlayerTotal() > _dealer.GetPlayerTotal()) && (_player.GetPlayerTotal() <= 21))
             {
-                MessageBox.Show("Player has a higher score than Dealer", "Player Wins!");
+                MessageBox.Show("Player has a higher score than Dealer", "Player Wins a payout of {0}" + _returns); // test
                 _payout = 2;
                 _gameWins++;
             }
@@ -163,6 +209,7 @@ namespace BlackJackDissertation.Files
             {
                 MessageBox.Show("Dealer has a higher score than Player", "Dealer Wins!");
                 _payout = 0;
+                _gamesLost++;
             }
             // if the dealer goes bust
             else if ((_player.GetPlayerTotal() <= 21) && (_dealer.GetPlayerTotal() > 21))
@@ -176,6 +223,7 @@ namespace BlackJackDissertation.Files
             {
                 MessageBox.Show("Player has scored over 21", "Dealer Wins!");
                 _payout = 0;
+                _gamesLost++;
             }
             // if player and dealer have the same score
             else if ((_player.GetPlayerTotal() <= 21) && (_player.GetPlayerTotal() == _dealer.GetPlayerTotal()))
@@ -197,7 +245,13 @@ namespace BlackJackDissertation.Files
                 GameEnd();
             }
 
+            // payout test
+
+            
+
         }
+        
+       
         /// <summary>
         /// This will close the application / current game and all values will be reset to there default
         /// </summary>
@@ -296,6 +350,25 @@ namespace BlackJackDissertation.Files
             return this._gameWins;
         }
 
+        public void SetGameLoss(int gameloss)
+        {
+            this._gamesLost = gameloss;
+        }
+
+        public int GetGameLoss()
+        {
+            return this._gamesLost;
+        }
+
+        public void SetReturns(int returns)
+        {
+            this._returns = returns;
+            _returns = (int)(_bet * _payout);
+        }
+        public int GetReturns()
+        {
+            return _returns;
+        }
 
         #endregion
 

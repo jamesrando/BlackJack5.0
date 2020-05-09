@@ -38,5 +38,10 @@ namespace BlackJackDissertation.Forms
         {
 
         }
+
+        private void btn_rules_Click(object sender, EventArgs e)
+        {
+            // add rules to btn text
+        }
     }
 }
