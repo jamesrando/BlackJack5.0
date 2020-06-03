@@ -458,6 +458,7 @@
             this.Controls.Add(this.dealerCard3);
             this.Controls.Add(this.dealerCard2);
             this.Controls.Add(this.betInput);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "GameForm";
             this.Text = "GameForm";
             this.Load += new System.EventHandler(this.GameForm_Load);

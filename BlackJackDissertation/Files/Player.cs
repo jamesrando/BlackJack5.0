@@ -85,7 +85,17 @@ namespace BlackJackDissertation.Files
         {
             return _cardAmmount;
         }
+        public void SetCardAmmountValue(int card)
+        {
+            this._cardAmmount = card;
+        }
+
+       
 
         #endregion
+
     }
 }
+
+
+

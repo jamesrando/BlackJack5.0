@@ -74,6 +74,7 @@
             this.ClientSize = new System.Drawing.Size(829, 474);
             this.Controls.Add(this.btn_rules);
             this.Controls.Add(this.btn_new_game);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MenuForm";
             this.Text = "MenuForm";

@@ -22,7 +22,8 @@ namespace BlackJackDissertation.Files
         private int _gameWins;
         private int _gamesPlayed;
         private int _gamesLost;
-        private int _returns; // ammount player returns at end of each hand
+        
+
 
         // constructor
 
@@ -38,6 +39,7 @@ namespace BlackJackDissertation.Files
             _gameWins = 0;
             _gamesPlayed = 0;
             _gamesLost = 0;
+           
         }
 
         // methods and get and setters
@@ -142,7 +144,7 @@ namespace BlackJackDissertation.Files
             }
             HandOutcome();        
         }
-        public void PlayerWins()
+       /* public void PlayerWins()
         {
             if (_player.GetCardAmmount() == 2 && _player.GetPlayerTotal() == 21)
             {
@@ -175,12 +177,12 @@ namespace BlackJackDissertation.Files
                 _payout = 1;
             }
 
-        }
+        }*/
 
         /// <summary>
         /// determines the winner of the hand between the player and dealer
         /// </summary>
-        public void HandOutcome()
+        public void HandOutcome() 
         {
             // if the player gets a blackjack
             if (_player.GetCardAmmount() == 2 && _player.GetPlayerTotal() == 21)
@@ -200,9 +202,10 @@ namespace BlackJackDissertation.Files
             // if player and dealer dont bust but the player has a higher score than the dealer
             else if ((_player.GetPlayerTotal() <= 21) && (_player.GetPlayerTotal() > _dealer.GetPlayerTotal()) && (_player.GetPlayerTotal() <= 21))
             {
-                MessageBox.Show("Player has a higher score than Dealer", "Player Wins a payout of {0}" + _returns); // test
+                MessageBox.Show("Player has a higher score than Dealer", "Player Wins!"); 
                 _payout = 2;
                 _gameWins++;
+                 
             }
             // if player and dealer dont bust but dealer has a higher score the player
             else if ((_player.GetPlayerTotal() <= 21) && (_player.GetPlayerTotal() < _dealer.GetPlayerTotal()) && (_dealer.GetPlayerTotal() <= 21))
@@ -247,7 +250,7 @@ namespace BlackJackDissertation.Files
 
             // payout test
 
-            
+           
 
         }
         
@@ -360,15 +363,22 @@ namespace BlackJackDissertation.Files
             return this._gamesLost;
         }
 
-        public void SetReturns(int returns)
+      
+
+      /*  public int Returns // property for getting the wager return
         {
-            this._returns = returns;
-            _returns = (int)(_bet * _payout);
-        }
-        public int GetReturns()
-        {
-            return _returns;
-        }
+            get
+            {
+                return _returns = (int)(_bet * _payout);
+            }
+            set
+            {
+                _returns = value;
+            }
+        
+        }*/
+
+
 
         #endregion
 

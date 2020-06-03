@@ -83,7 +83,8 @@ namespace BlackJackDissertation.Files
             return this._cardBack;
         }
 
-      
+        public int _Card { get; set; }
+
         #endregion Getters and Setters
 
 

@@ -15,12 +15,19 @@ namespace BlackJackDissertation.Files
 
         private Card[] _deck; // an Array of the card class which is going to be the creation of multiple cards
         private int _nextCard; // will determine what the next card is going to be pulled from the deck of cards
-        private int _card;
+        //private int _card;
         private int _suit;
         private string _rank;
         private int _value;
 
+        // testing array values
+        Array  _aRanks = new [] { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+        Array  _aSuits = new [] { "H", "D", "S", "C" };
+
+
         // constructors
+
+
 
         public Deck()
         {
@@ -101,7 +108,7 @@ namespace BlackJackDissertation.Files
         public Card DrawCard()
         {
             Card drawCard = _deck[_nextCard];
-            //Makes sure all aces have 11 value to start with (in case it has been changed and shuffled back in)
+            //Makes sure all aces have 11 value to start with 
             if (drawCard.GetRank() == "A")
             {
                 drawCard.SetValue(11);
@@ -115,36 +122,7 @@ namespace BlackJackDissertation.Files
             return drawCard;
         }
 
-      /*  public bool IsAce()
-        {
-
-            *//*  Card card = _deck[_card];
-
-
-
-              if(card.GetRank() == "A")
-              {
-                  card.SetValue(11)
-
-              }
-
-              return card.GetRank() == "A";*/
-           /* Card drawCard = _deck[_nextCard];
-
-            if (drawCard.GetRank() == "A")
-            {
-                drawCard.SetValue(11);
-            }*//*
-
-            if (GetRank() == "A")
-            {
-                SetValue(11);
-            }
-            if ()
-
-            return true;
-        }
-*/
+    
        
 
 
@@ -273,8 +251,19 @@ namespace BlackJackDissertation.Files
         {
             return _value;
         }
+
+        public Array GetSuitArray() 
+        {
+            return _aSuits;
+        }
+
+        public Array GetRankArray()
+        {
+            return _aRanks;
+        }
         #endregion
     }
 
-
+  
+   
 }

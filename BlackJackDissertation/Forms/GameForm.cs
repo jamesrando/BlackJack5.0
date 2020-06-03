@@ -198,7 +198,7 @@ namespace BlackJackDissertation
                 pb_chip_500.Visible = true;
                 btn_all_in.Visible = true;
                 btn_reset.Visible = true;
-                lbl_loses.Visible = false;
+                lbl_loses.Visible = true;
                 pb_bet.Visible = false;
             }
             else
