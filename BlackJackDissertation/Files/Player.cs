@@ -10,9 +10,9 @@ namespace BlackJackDissertation.Files
     {
         // members and properties
 
-        private Card[] _cards;
-        private int _playerTotal;
-        private int _cardAmmount;
+        private Card[] _cards; // an array of cards that is an instance of the card class
+        private int _playerTotal;// will represent the players hand total using a numemric value
+        private int _cardAmmount; // will represent the ammount of cards the player has in there current hand
 
         // constructors
 

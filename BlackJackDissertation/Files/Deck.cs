@@ -15,19 +15,16 @@ namespace BlackJackDissertation.Files
 
         private Card[] _deck; // an Array of the card class which is going to be the creation of multiple cards
         private int _nextCard; // will determine what the next card is going to be pulled from the deck of cards
-        //private int _card;
-        private int _suit;
-        private string _rank;
-        private int _value;
+        private int _suit;  // represents each suit value that will be included in the deck of cards
+        private string _rank; // represents each rank value that will be included in the deck of cards
+        private int _value; // represents each value of the cards that will be included in the deck of cards
 
         // testing array values
         Array  _aRanks = new [] { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
         Array  _aSuits = new [] { "H", "D", "S", "C" };
 
 
-        // constructors
-
-
+        // constructor
 
         public Deck()
         {
@@ -36,26 +33,26 @@ namespace BlackJackDissertation.Files
             string[] suits = { "H", "D", "S", "C" };
             int position = 0;
 
-            //Builds new deck
-            //Creates 6 'Standard decks' (52 cards)
+            // Creation of the deck of cards that will be used
+            // an array of cards that will equal the deck ammount of 6
             _deck = new Card[312];
             for (int deckNumber = 0; deckNumber < 6; deckNumber++)
             {
-                //Each of the four suits
+                // the four suits that are used in a deck of cards
                 for (int suitNumber = 0; suitNumber < 4; suitNumber++)
                 {
-                    //Each of the thirteen ranks
+                    // the 13 ranks that will be required in a deck of cards
                     for (int rankNumber = 0; rankNumber < 13; rankNumber++)
                     {
                         //Set the filename of the image based on the above information
                         string imageName = "BlackJackDissertation.Cards." + ranks[rankNumber] + suits[suitNumber] + ".jpg";
 
-                        //Load the image from local resource
+                        // gathers local resource of the card images folder
                         Assembly myAssembly = Assembly.GetExecutingAssembly();
                         Stream myStream = myAssembly.GetManifestResourceStream(imageName);
                         Bitmap bmp = new Bitmap(myStream);
 
-                        //Determine the value of the card
+                        // Sets each value of the card values that will be required
                         int value;
                         if (rankNumber == 0)
                         {
@@ -69,7 +66,7 @@ namespace BlackJackDissertation.Files
                         {
                             value = 10;
                         }
-                       // Create the card and add it to deck
+                       // Initialize of the card class which creates the deck
                        Card newCard = new Card(suitNumber, ranks[rankNumber], value, bmp, Properties.Resources.cardback);
                        _deck[position] = newCard;
                         position++;
@@ -86,7 +83,7 @@ namespace BlackJackDissertation.Files
         /// </summary>
         public void ShuffleDeck()
         {
-            Random rand = new Random();
+            Random rand = new Random(); // use of the random class to create shuffle mechanic 
 
             //Takes each card and randomly swaps it with another in the array
             for (int first = _nextCard; first < (_deck.Count() - _nextCard); first++)
@@ -108,7 +105,7 @@ namespace BlackJackDissertation.Files
         public Card DrawCard()
         {
             Card drawCard = _deck[_nextCard];
-            //Makes sure all aces have 11 value to start with 
+            //Makes sure all aces have 11 value to start with rather than the value of 1
             if (drawCard.GetRank() == "A")
             {
                 drawCard.SetValue(11);
@@ -124,75 +121,6 @@ namespace BlackJackDissertation.Files
 
     
        
-
-
-
-        /// <summary>
-        /// use to test card values in array
-        /// </summary>
-        /* public int NumberValue()
-         {
-             Card cards = _deck[_nextCard];
-
-             if (cards.GetRank() == "A")
-             {
-                 cards.SetValue(11);
-             }
-             if (cards.GetRank() == "2")
-             {
-                 cards.SetValue(2);
-             }
-             if (cards.GetRank() == "3")
-             {
-                 cards.SetValue(3);
-             }
-             if (cards.GetRank() == "4")
-             {
-                 cards.SetValue(4);
-             }
-             if (cards.GetRank() == "5")
-             {
-                 cards.SetValue(5);
-             }
-             if (cards.GetRank() == "6")
-             {
-                 cards.SetValue(6);
-             }
-             if (cards.GetRank() == "7")
-             {
-                 cards.SetValue(7);
-             }
-             if (cards.GetRank() == "8")
-             {
-                 cards.SetValue(8);
-             }
-             if (cards.GetRank() == "9")
-             {
-                 cards.SetValue(9);
-             }
-             if (cards.GetRank() == "10")
-             {
-                 cards.SetValue(10);
-             }
-             if (cards.GetRank() == "J")
-             {
-                 cards.SetValue(10);
-             }
-             if (cards.GetRank() == "Q")
-             {
-                 cards.SetValue(10);
-             }
-             if (cards.GetRank() == "K")
-             {
-                 cards.SetValue(10);
-             }
-
-             return cards;
-
-
-         }*/
-
-
         //Getters and setters
         #region Getters and Setters
 
@@ -247,7 +175,7 @@ namespace BlackJackDissertation.Files
             return _value;
         }
 
-        public int SetCardValue(int value)  // test
+        public int SetCardValue(int value)  
         {
             return _value;
         }
